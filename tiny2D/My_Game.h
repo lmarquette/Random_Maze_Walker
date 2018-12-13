@@ -97,39 +97,23 @@ namespace My_Game
 
 		random_Walk_Step(&World::current_position, &World::map);
 
-		int left1 = World::current_position.y * World::display_map.n_cols + World::current_position.x - 1;
-		int right1 = World::current_position.y * World::display_map.n_cols + World::current_position.x + 1;
-		int up1 = (World::current_position.y - 1) * World::display_map.n_cols + World::current_position.x;
-		int down1 = (World::current_position.y + 1) * World::display_map.n_cols + World::current_position.x;
-
-		int top_left = (World::current_position.y + 1) * World::display_map.n_cols + World::current_position.x - 1;
-		int top_right = (World::current_position.y + 1) * World::display_map.n_cols + World::current_position.x + 1;
-		int bottom_left = (World::current_position.y - 1) * World::display_map.n_cols + World::current_position.x - 1;
-		int bottom_right = (World::current_position.y - 1) * World::display_map.n_cols + World::current_position.x + 1;
-
-		int left2 = World::current_position.y * World::display_map.n_cols + World::current_position.x - 1;
-		int right2 = World::current_position.y * World::display_map.n_cols + World::current_position.x + 1;
-		int up2 = (World::current_position.y - 1) * World::display_map.n_cols + World::current_position.x;
-		int down2 = (World::current_position.y + 1) * World::display_map.n_cols + World::current_position.x;
-
 		for (int i = 0; i < World::display_map.n_cols * World::display_map.n_rows; i++)
 		{
-			//1 = orange, 4 = red x, 6 = white, 7 = red box, 8 = dark blue, 11 = blue box, 12 = green, 13 = red, 14 = yellow, 15 = green box, 16 = black
 			if (World::map.data[i] == 0)
 			{
-				World::display_map.data[i] = 16;
+				World::display_map.data[i] = 0;
 			}
-			if (World::map.data[i] == 1)
+			else if (World::map.data[i] == 1)
 			{
 				World::display_map.data[i] = 6;
 			}
+			else if (World::map.data[i] <= 2)
+			{
+				World::display_map.data[i] = 5;
+			}
 			else if (World::map.data[i] == 3)
 			{
-				World::display_map.data[i] = 11;
-			}
-			else if (World::map.data[i] == 4)
-			{
-				World::display_map.data[i] = 7;
+				World::display_map.data[i] = 4;
 			}
 
 		}
