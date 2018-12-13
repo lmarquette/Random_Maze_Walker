@@ -5,6 +5,7 @@
 #include "include/Actor_core.h"
 #include "include/Particle_core.h"
 
+//chicken butt
 namespace My_Game
 {
 	int m(int x, int y, int ncols)
